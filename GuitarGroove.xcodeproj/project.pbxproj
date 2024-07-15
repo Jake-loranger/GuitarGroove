@@ -1,0 +1,601 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A1397B5F2C45331200469111 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1397B5E2C45331200469111 /* AppDelegate.swift */; };
+		A1397B612C45331200469111 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1397B602C45331200469111 /* SceneDelegate.swift */; };
+		A1397B632C45331200469111 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1397B622C45331200469111 /* ViewController.swift */; };
+		A1397B662C45331200469111 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1397B642C45331200469111 /* Main.storyboard */; };
+		A1397B682C45331400469111 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1397B672C45331400469111 /* Assets.xcassets */; };
+		A1397B6B2C45331400469111 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1397B692C45331400469111 /* LaunchScreen.storyboard */; };
+		A1397B762C45331500469111 /* GuitarGrooveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1397B752C45331500469111 /* GuitarGrooveTests.swift */; };
+		A1397B802C45331500469111 /* GuitarGrooveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1397B7F2C45331500469111 /* GuitarGrooveUITests.swift */; };
+		A1397B822C45331500469111 /* GuitarGrooveUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1397B812C45331500469111 /* GuitarGrooveUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A1397B722C45331500469111 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1397B532C45331200469111 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1397B5A2C45331200469111;
+			remoteInfo = GuitarGroove;
+		};
+		A1397B7C2C45331500469111 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1397B532C45331200469111 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1397B5A2C45331200469111;
+			remoteInfo = GuitarGroove;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A1397B5B2C45331200469111 /* GuitarGroove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuitarGroove.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1397B5E2C45331200469111 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A1397B602C45331200469111 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A1397B622C45331200469111 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A1397B652C45331200469111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A1397B672C45331400469111 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A1397B6A2C45331400469111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A1397B6C2C45331400469111 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1397B712C45331500469111 /* GuitarGrooveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuitarGrooveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1397B752C45331500469111 /* GuitarGrooveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarGrooveTests.swift; sourceTree = "<group>"; };
+		A1397B7B2C45331500469111 /* GuitarGrooveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuitarGrooveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1397B7F2C45331500469111 /* GuitarGrooveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarGrooveUITests.swift; sourceTree = "<group>"; };
+		A1397B812C45331500469111 /* GuitarGrooveUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarGrooveUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A1397B582C45331200469111 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1397B6E2C45331500469111 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1397B782C45331500469111 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A1397B522C45331200469111 = {
+			isa = PBXGroup;
+			children = (
+				A1397B5D2C45331200469111 /* GuitarGroove */,
+				A1397B742C45331500469111 /* GuitarGrooveTests */,
+				A1397B7E2C45331500469111 /* GuitarGrooveUITests */,
+				A1397B5C2C45331200469111 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A1397B5C2C45331200469111 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1397B5B2C45331200469111 /* GuitarGroove.app */,
+				A1397B712C45331500469111 /* GuitarGrooveTests.xctest */,
+				A1397B7B2C45331500469111 /* GuitarGrooveUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A1397B5D2C45331200469111 /* GuitarGroove */ = {
+			isa = PBXGroup;
+			children = (
+				A1397B5E2C45331200469111 /* AppDelegate.swift */,
+				A1397B602C45331200469111 /* SceneDelegate.swift */,
+				A1397B622C45331200469111 /* ViewController.swift */,
+				A1397B642C45331200469111 /* Main.storyboard */,
+				A1397B672C45331400469111 /* Assets.xcassets */,
+				A1397B692C45331400469111 /* LaunchScreen.storyboard */,
+				A1397B6C2C45331400469111 /* Info.plist */,
+			);
+			path = GuitarGroove;
+			sourceTree = "<group>";
+		};
+		A1397B742C45331500469111 /* GuitarGrooveTests */ = {
+			isa = PBXGroup;
+			children = (
+				A1397B752C45331500469111 /* GuitarGrooveTests.swift */,
+			);
+			path = GuitarGrooveTests;
+			sourceTree = "<group>";
+		};
+		A1397B7E2C45331500469111 /* GuitarGrooveUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A1397B7F2C45331500469111 /* GuitarGrooveUITests.swift */,
+				A1397B812C45331500469111 /* GuitarGrooveUITestsLaunchTests.swift */,
+			);
+			path = GuitarGrooveUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A1397B5A2C45331200469111 /* GuitarGroove */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1397B852C45331500469111 /* Build configuration list for PBXNativeTarget "GuitarGroove" */;
+			buildPhases = (
+				A1397B572C45331200469111 /* Sources */,
+				A1397B582C45331200469111 /* Frameworks */,
+				A1397B592C45331200469111 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GuitarGroove;
+			productName = GuitarGroove;
+			productReference = A1397B5B2C45331200469111 /* GuitarGroove.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A1397B702C45331500469111 /* GuitarGrooveTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1397B882C45331500469111 /* Build configuration list for PBXNativeTarget "GuitarGrooveTests" */;
+			buildPhases = (
+				A1397B6D2C45331500469111 /* Sources */,
+				A1397B6E2C45331500469111 /* Frameworks */,
+				A1397B6F2C45331500469111 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1397B732C45331500469111 /* PBXTargetDependency */,
+			);
+			name = GuitarGrooveTests;
+			productName = GuitarGrooveTests;
+			productReference = A1397B712C45331500469111 /* GuitarGrooveTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A1397B7A2C45331500469111 /* GuitarGrooveUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1397B8B2C45331500469111 /* Build configuration list for PBXNativeTarget "GuitarGrooveUITests" */;
+			buildPhases = (
+				A1397B772C45331500469111 /* Sources */,
+				A1397B782C45331500469111 /* Frameworks */,
+				A1397B792C45331500469111 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1397B7D2C45331500469111 /* PBXTargetDependency */,
+			);
+			name = GuitarGrooveUITests;
+			productName = GuitarGrooveUITests;
+			productReference = A1397B7B2C45331500469111 /* GuitarGrooveUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A1397B532C45331200469111 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					A1397B5A2C45331200469111 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					A1397B702C45331500469111 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = A1397B5A2C45331200469111;
+					};
+					A1397B7A2C45331500469111 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = A1397B5A2C45331200469111;
+					};
+				};
+			};
+			buildConfigurationList = A1397B562C45331200469111 /* Build configuration list for PBXProject "GuitarGroove" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A1397B522C45331200469111;
+			productRefGroup = A1397B5C2C45331200469111 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A1397B5A2C45331200469111 /* GuitarGroove */,
+				A1397B702C45331500469111 /* GuitarGrooveTests */,
+				A1397B7A2C45331500469111 /* GuitarGrooveUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A1397B592C45331200469111 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1397B6B2C45331400469111 /* LaunchScreen.storyboard in Resources */,
+				A1397B682C45331400469111 /* Assets.xcassets in Resources */,
+				A1397B662C45331200469111 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1397B6F2C45331500469111 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1397B792C45331500469111 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A1397B572C45331200469111 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1397B632C45331200469111 /* ViewController.swift in Sources */,
+				A1397B5F2C45331200469111 /* AppDelegate.swift in Sources */,
+				A1397B612C45331200469111 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1397B6D2C45331500469111 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1397B762C45331500469111 /* GuitarGrooveTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1397B772C45331500469111 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1397B822C45331500469111 /* GuitarGrooveUITestsLaunchTests.swift in Sources */,
+				A1397B802C45331500469111 /* GuitarGrooveUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A1397B732C45331500469111 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1397B5A2C45331200469111 /* GuitarGroove */;
+			targetProxy = A1397B722C45331500469111 /* PBXContainerItemProxy */;
+		};
+		A1397B7D2C45331500469111 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1397B5A2C45331200469111 /* GuitarGroove */;
+			targetProxy = A1397B7C2C45331500469111 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A1397B642C45331200469111 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1397B652C45331200469111 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A1397B692C45331400469111 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1397B6A2C45331400469111 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A1397B832C45331500469111 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A1397B842C45331500469111 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A1397B862C45331500469111 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GuitarGroove/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JakeLoranger.GuitarGroove;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A1397B872C45331500469111 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GuitarGroove/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JakeLoranger.GuitarGroove;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A1397B892C45331500469111 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JakeLoranger.GuitarGrooveTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GuitarGroove.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GuitarGroove";
+			};
+			name = Debug;
+		};
+		A1397B8A2C45331500469111 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JakeLoranger.GuitarGrooveTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GuitarGroove.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GuitarGroove";
+			};
+			name = Release;
+		};
+		A1397B8C2C45331500469111 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JakeLoranger.GuitarGrooveUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GuitarGroove;
+			};
+			name = Debug;
+		};
+		A1397B8D2C45331500469111 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JakeLoranger.GuitarGrooveUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GuitarGroove;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A1397B562C45331200469111 /* Build configuration list for PBXProject "GuitarGroove" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1397B832C45331500469111 /* Debug */,
+				A1397B842C45331500469111 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1397B852C45331500469111 /* Build configuration list for PBXNativeTarget "GuitarGroove" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1397B862C45331500469111 /* Debug */,
+				A1397B872C45331500469111 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1397B882C45331500469111 /* Build configuration list for PBXNativeTarget "GuitarGrooveTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1397B892C45331500469111 /* Debug */,
+				A1397B8A2C45331500469111 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1397B8B2C45331500469111 /* Build configuration list for PBXNativeTarget "GuitarGrooveUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1397B8C2C45331500469111 /* Debug */,
+				A1397B8D2C45331500469111 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A1397B532C45331200469111 /* Project object */;
+}
