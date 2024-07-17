@@ -10,12 +10,13 @@
 		A1397B5F2C45331200469111 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1397B5E2C45331200469111 /* AppDelegate.swift */; };
 		A1397B612C45331200469111 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1397B602C45331200469111 /* SceneDelegate.swift */; };
 		A1397B632C45331200469111 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1397B622C45331200469111 /* ViewController.swift */; };
-		A1397B662C45331200469111 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1397B642C45331200469111 /* Main.storyboard */; };
 		A1397B682C45331400469111 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1397B672C45331400469111 /* Assets.xcassets */; };
 		A1397B6B2C45331400469111 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1397B692C45331400469111 /* LaunchScreen.storyboard */; };
 		A1397B762C45331500469111 /* GuitarGrooveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1397B752C45331500469111 /* GuitarGrooveTests.swift */; };
 		A1397B802C45331500469111 /* GuitarGrooveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1397B7F2C45331500469111 /* GuitarGrooveUITests.swift */; };
 		A1397B822C45331500469111 /* GuitarGrooveUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1397B812C45331500469111 /* GuitarGrooveUITestsLaunchTests.swift */; };
+		A1397B902C45411C00469111 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1397B8F2C45411C00469111 /* BluetoothManager.swift */; };
+		A1397B942C45E3B500469111 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1397B932C45E3B500469111 /* AudioManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +41,6 @@
 		A1397B5E2C45331200469111 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1397B602C45331200469111 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A1397B622C45331200469111 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A1397B652C45331200469111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A1397B672C45331400469111 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1397B6A2C45331400469111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1397B6C2C45331400469111 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +49,8 @@
 		A1397B7B2C45331500469111 /* GuitarGrooveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuitarGrooveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1397B7F2C45331500469111 /* GuitarGrooveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarGrooveUITests.swift; sourceTree = "<group>"; };
 		A1397B812C45331500469111 /* GuitarGrooveUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarGrooveUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A1397B8F2C45411C00469111 /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
+		A1397B932C45E3B500469111 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +101,10 @@
 		A1397B5D2C45331200469111 /* GuitarGroove */ = {
 			isa = PBXGroup;
 			children = (
+				A1397B8E2C45410100469111 /* Managers */,
 				A1397B5E2C45331200469111 /* AppDelegate.swift */,
 				A1397B602C45331200469111 /* SceneDelegate.swift */,
 				A1397B622C45331200469111 /* ViewController.swift */,
-				A1397B642C45331200469111 /* Main.storyboard */,
 				A1397B672C45331400469111 /* Assets.xcassets */,
 				A1397B692C45331400469111 /* LaunchScreen.storyboard */,
 				A1397B6C2C45331400469111 /* Info.plist */,
@@ -125,6 +127,15 @@
 				A1397B812C45331500469111 /* GuitarGrooveUITestsLaunchTests.swift */,
 			);
 			path = GuitarGrooveUITests;
+			sourceTree = "<group>";
+		};
+		A1397B8E2C45410100469111 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A1397B8F2C45411C00469111 /* BluetoothManager.swift */,
+				A1397B932C45E3B500469111 /* AudioManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +244,6 @@
 			files = (
 				A1397B6B2C45331400469111 /* LaunchScreen.storyboard in Resources */,
 				A1397B682C45331400469111 /* Assets.xcassets in Resources */,
-				A1397B662C45331200469111 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +270,8 @@
 			files = (
 				A1397B632C45331200469111 /* ViewController.swift in Sources */,
 				A1397B5F2C45331200469111 /* AppDelegate.swift in Sources */,
+				A1397B902C45411C00469111 /* BluetoothManager.swift in Sources */,
+				A1397B942C45E3B500469111 /* AudioManager.swift in Sources */,
 				A1397B612C45331200469111 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,14 +309,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A1397B642C45331200469111 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A1397B652C45331200469111 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A1397B692C45331400469111 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -437,13 +441,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4C7H6LPRHA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GuitarGroove/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app needs the microphone to record audio sessions";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -464,13 +470,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4C7H6LPRHA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GuitarGroove/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app needs the microphone to record audio sessions";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
