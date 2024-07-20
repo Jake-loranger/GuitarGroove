@@ -23,7 +23,7 @@ class AudioManager {
     func setupAudioSession() {
         recordingSession = AVAudioSession.sharedInstance()
         do {
-            try recordingSession.setCategory(.playAndRecord, mode: .default)
+            try recordingSession.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker])
             try recordingSession.setActive(true)
             recordingSession.requestRecordPermission() { [unowned self] allowed in
                 DispatchQueue.main.async {
@@ -89,6 +89,7 @@ class AudioManager {
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: audioFilename)
             audioPlayer?.play()
+            audioPlayer?.volume = 1.0 
             print("Playback started.")
         } catch {
             // Handle playback errors
