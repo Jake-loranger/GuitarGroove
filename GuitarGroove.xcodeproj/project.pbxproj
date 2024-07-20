@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A1397B5F2C45331200469111 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1397B5E2C45331200469111 /* AppDelegate.swift */; };
 		A1397B612C45331200469111 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1397B602C45331200469111 /* SceneDelegate.swift */; };
-		A1397B632C45331200469111 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1397B622C45331200469111 /* ViewController.swift */; };
+		A1397B632C45331200469111 /* RecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1397B622C45331200469111 /* RecordVC.swift */; };
 		A1397B682C45331400469111 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1397B672C45331400469111 /* Assets.xcassets */; };
 		A1397B6B2C45331400469111 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1397B692C45331400469111 /* LaunchScreen.storyboard */; };
 		A1397B762C45331500469111 /* GuitarGrooveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1397B752C45331500469111 /* GuitarGrooveTests.swift */; };
@@ -20,6 +20,8 @@
 		A1D9824D2C4B0EDD002D8194 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D9824C2C4B0EDD002D8194 /* LibraryCell.swift */; };
 		A1D9824F2C4B2792002D8194 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D9824E2C4B2792002D8194 /* FileManager.swift */; };
 		A1D982522C4BC6C7002D8194 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D982512C4BC6C7002D8194 /* Record.swift */; };
+		A1D982562C4C065C002D8194 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D982552C4C065C002D8194 /* TabBarController.swift */; };
+		A1D982582C4C0FA6002D8194 /* LibraryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D982572C4C0FA6002D8194 /* LibraryVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +45,7 @@
 		A1397B5B2C45331200469111 /* GuitarGroove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuitarGroove.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1397B5E2C45331200469111 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1397B602C45331200469111 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A1397B622C45331200469111 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A1397B622C45331200469111 /* RecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordVC.swift; sourceTree = "<group>"; };
 		A1397B672C45331400469111 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1397B6A2C45331400469111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1397B6C2C45331400469111 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +59,8 @@
 		A1D9824C2C4B0EDD002D8194 /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
 		A1D9824E2C4B2792002D8194 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		A1D982512C4BC6C7002D8194 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		A1D982552C4C065C002D8194 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		A1D982572C4C0FA6002D8194 /* LibraryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,12 +111,12 @@
 		A1397B5D2C45331200469111 /* GuitarGroove */ = {
 			isa = PBXGroup;
 			children = (
-				A1D982502C4BC6B6002D8194 /* Models */,
+				A1D982532C4C05D1002D8194 /* Controllers */,
 				A1397B8E2C45410100469111 /* Managers */,
-				A1D9824C2C4B0EDD002D8194 /* LibraryCell.swift */,
+				A1D982502C4BC6B6002D8194 /* Models */,
+				A1D982542C4C05D8002D8194 /* Views */,
 				A1397B5E2C45331200469111 /* AppDelegate.swift */,
 				A1397B602C45331200469111 /* SceneDelegate.swift */,
-				A1397B622C45331200469111 /* ViewController.swift */,
 				A1397B672C45331400469111 /* Assets.xcassets */,
 				A1397B692C45331400469111 /* LaunchScreen.storyboard */,
 				A1397B6C2C45331400469111 /* Info.plist */,
@@ -153,6 +157,24 @@
 				A1D982512C4BC6C7002D8194 /* Record.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A1D982532C4C05D1002D8194 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A1397B622C45331200469111 /* RecordVC.swift */,
+				A1D982552C4C065C002D8194 /* TabBarController.swift */,
+				A1D982572C4C0FA6002D8194 /* LibraryVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A1D982542C4C05D8002D8194 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A1D9824C2C4B0EDD002D8194 /* LibraryCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,9 +307,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1397B632C45331200469111 /* ViewController.swift in Sources */,
+				A1D982582C4C0FA6002D8194 /* LibraryVC.swift in Sources */,
+				A1397B632C45331200469111 /* RecordVC.swift in Sources */,
 				A1397B5F2C45331200469111 /* AppDelegate.swift in Sources */,
 				A1D9824D2C4B0EDD002D8194 /* LibraryCell.swift in Sources */,
+				A1D982562C4C065C002D8194 /* TabBarController.swift in Sources */,
 				A1D9824F2C4B2792002D8194 /* FileManager.swift in Sources */,
 				A1397B902C45411C00469111 /* BluetoothManager.swift in Sources */,
 				A1397B942C45E3B500469111 /* AudioManager.swift in Sources */,

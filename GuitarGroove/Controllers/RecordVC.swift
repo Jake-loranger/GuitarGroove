@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RecordVC.swift
 //  GuitarGroove
 //
 //  Created by Jacob  Loranger on 7/15/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class RecordVC: UIViewController {
     
     let titleImageView = UIImageView()
     let recordView = UIView()
@@ -161,7 +161,7 @@ class ViewController: UIViewController {
     @objc func recordButtonAction() {
         if audioManager.isRecording {
             audioManager.stopRecording()
-//            print(audioManager.saveRecording())
+            print(audioManager.saveRecording())
             recordButton.tintColor = .systemGray
         } else {
             audioManager.startRecording()
@@ -191,7 +191,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension RecordVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return min(recordings.count, 7)
     }
