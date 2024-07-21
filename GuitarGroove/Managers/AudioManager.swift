@@ -69,10 +69,11 @@ class AudioManager {
         }
     }
     
-    func saveRecording() -> URL? {
+    func saveRecording(fileName: String) -> URL? {
         guard let audioRecorder = audioRecorder else { return nil }
         
-        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.wav")
+        
+        let audioFilename = getDocumentsDirectory().appendingPathComponent(fileName + ".wav")
         
         do {
             try FileManager.default.moveItem(at: audioRecorder.url, to: audioFilename)
@@ -89,11 +90,22 @@ class AudioManager {
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: audioFilename)
             audioPlayer?.play()
-            audioPlayer?.volume = 1.0 
+            audioPlayer?.volume = 1.0
             print("Playback started.")
         } catch {
             // Handle playback errors
             print("Failed to play recording.")
+        }
+    }
+    
+    func pauseRecording() {
+        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.wav")
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: audioFilename)
+            audioPlayer?.pause()
+        } catch {
+            print("Failed to pause recording")
         }
     }
     

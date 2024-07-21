@@ -22,6 +22,7 @@
 		A1D982522C4BC6C7002D8194 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D982512C4BC6C7002D8194 /* Record.swift */; };
 		A1D982562C4C065C002D8194 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D982552C4C065C002D8194 /* TabBarController.swift */; };
 		A1D982582C4C0FA6002D8194 /* LibraryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D982572C4C0FA6002D8194 /* LibraryVC.swift */; };
+		A1D9825A2C4C14AA002D8194 /* RecentRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D982592C4C14AA002D8194 /* RecentRecordView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		A1D982512C4BC6C7002D8194 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		A1D982552C4C065C002D8194 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A1D982572C4C0FA6002D8194 /* LibraryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryVC.swift; sourceTree = "<group>"; };
+		A1D982592C4C14AA002D8194 /* RecentRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentRecordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,9 +164,9 @@
 		A1D982532C4C05D1002D8194 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A1397B622C45331200469111 /* RecordVC.swift */,
 				A1D982552C4C065C002D8194 /* TabBarController.swift */,
 				A1D982572C4C0FA6002D8194 /* LibraryVC.swift */,
+				A1397B622C45331200469111 /* RecordVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				A1D9824C2C4B0EDD002D8194 /* LibraryCell.swift */,
+				A1D982592C4C14AA002D8194 /* RecentRecordView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1D9825A2C4C14AA002D8194 /* RecentRecordView.swift in Sources */,
 				A1D982582C4C0FA6002D8194 /* LibraryVC.swift in Sources */,
 				A1397B632C45331200469111 /* RecordVC.swift in Sources */,
 				A1397B5F2C45331200469111 /* AppDelegate.swift in Sources */,

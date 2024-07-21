@@ -11,13 +11,13 @@ class RecordVC: UIViewController {
     
     let titleImageView = UIImageView()
     let recordView = UIView()
-    let libraryView = UIView()
-    let libraryTableView = UITableView()
+    let libraryView = UIStackView()
     let recordButton = UIButton(type: .system)
     let playButton = UIButton(type: .system)
+    let saveButton = UIButton(type: .system)
     
     var audioManager = AudioManager()
-    let recordings: [String] = ["Recording 1", "Recording 2", "Recording", "Recording", "Recording", "Recording", "Recording", "Recording", "Recording", "Recording", "Recording",]
+    let recordings: [String] = ["Recording 1", "Recording 2", "Recording 3", "Recording 4"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +28,8 @@ class RecordVC: UIViewController {
         configureRecordView()
         configureLibraryView()
         configureRecordButton()
-        configureLibraryTableView()
         configurePlayButton()
-        
+        configureSaveButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,9 +56,9 @@ class RecordVC: UIViewController {
         recordView.layer.cornerRadius = 10
         
         recordView.layer.shadowColor = UIColor.black.cgColor
-        recordView.layer.shadowOpacity = 0.2
+        recordView.layer.shadowOpacity = 0.1
         recordView.layer.shadowOffset = CGSize(width: 0, height: 2)
-        recordView.layer.shadowRadius = 6
+        recordView.layer.shadowRadius = 4
         recordView.layer.masksToBounds = false
         
         recordView.translatesAutoresizingMaskIntoConstraints = false
@@ -68,6 +67,38 @@ class RecordVC: UIViewController {
             recordView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             recordView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             recordView.heightAnchor.constraint(equalToConstant: 150),
+        ])
+    }
+    
+    func configureLibraryView() {
+        view.addSubview(libraryView)
+        libraryView.backgroundColor = .tertiarySystemBackground
+        libraryView.layer.cornerRadius = 10
+        
+        libraryView.layer.shadowColor = UIColor.black.cgColor
+        libraryView.layer.shadowOpacity = 0.1
+        libraryView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        libraryView.layer.shadowRadius = 4
+        libraryView.layer.masksToBounds = false
+        
+        libraryView.axis = .vertical
+        libraryView.alignment = .fill
+        libraryView.distribution = .fillEqually
+        
+        for recording in recordings {
+            let label = UILabel()
+            label.text = recording
+            label.textAlignment = .center
+            label.heightAnchor.constraint(equalToConstant: 50).isActive = true
+            libraryView.addArrangedSubview(label)
+        }
+        
+        libraryView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            libraryView.topAnchor.constraint(equalTo: recordView.bottomAnchor, constant: 25),
+            libraryView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            libraryView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            libraryView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -25),
         ])
     }
     
@@ -85,8 +116,8 @@ class RecordVC: UIViewController {
         NSLayoutConstraint.activate([
             recordButton.leadingAnchor.constraint(equalTo: recordView.leadingAnchor, constant: 40),
             recordButton.centerYAnchor.constraint(equalTo: recordView.centerYAnchor),
-            recordButton.heightAnchor.constraint(equalToConstant: 80),
-            recordButton.widthAnchor.constraint(equalToConstant: 70)
+            recordButton.heightAnchor.constraint(equalToConstant: 50),
+            recordButton.widthAnchor.constraint(equalToConstant: 40)
         ])
         
     }
@@ -105,63 +136,32 @@ class RecordVC: UIViewController {
         NSLayoutConstraint.activate([
             playButton.leadingAnchor.constraint(equalTo: recordButton.trailingAnchor, constant: 40),
             playButton.centerYAnchor.constraint(equalTo: recordButton.centerYAnchor),
-            playButton.heightAnchor.constraint(equalToConstant: 80),
-            playButton.widthAnchor.constraint(equalToConstant: 70)
-        ])
-        
-    }
-    
-    func configureLibraryView() {
-        view.addSubview(libraryView)
-        libraryView.backgroundColor = .tertiarySystemBackground
-        libraryView.layer.cornerRadius = 10
-        
-        libraryView.layer.shadowColor = UIColor.black.cgColor
-        libraryView.layer.shadowOpacity = 0.2
-        libraryView.layer.shadowOffset = CGSize(width: 0, height: 2)
-        libraryView.layer.shadowRadius = 6
-        libraryView.layer.masksToBounds = false
-        
-        libraryView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            libraryView.topAnchor.constraint(equalTo: recordView.bottomAnchor, constant: 25),
-            libraryView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            libraryView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            libraryView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -25),
+            playButton.heightAnchor.constraint(equalToConstant: 50),
+            playButton.widthAnchor.constraint(equalToConstant: 50)
         ])
     }
     
-    func configureLibraryTableView() {
-        libraryView.addSubview(libraryTableView)
+    func configureSaveButton() {
+        recordView.addSubview(saveButton)
+        let saveImage = UIImage(systemName: "folder.fill.badge.plus")
+        saveButton.setBackgroundImage(saveImage, for: .normal)
+        saveButton.tintColor = .systemGray
+        saveButton.imageView?.contentMode = .scaleAspectFit
         
-        libraryTableView.frame = libraryView.bounds
-        libraryTableView.rowHeight = 70
-        libraryTableView.delegate = self
-        libraryTableView.dataSource = self
+        saveButton.addTarget(self, action: #selector(saveButtonAction), for: .touchUpInside)
         
-        libraryTableView.layer.cornerRadius = 10
-        
-        libraryTableView.layer.shadowColor = UIColor.black.cgColor
-        libraryTableView.layer.shadowOpacity = 0.2
-        libraryTableView.layer.shadowOffset = CGSize(width: 0, height: 2)
-        libraryTableView.layer.shadowRadius = 6
-        libraryView.layer.masksToBounds = false
-        
-        libraryTableView.register(UITableViewCell.self, forCellReuseIdentifier: "AudioTrack")
-        
-        libraryTableView.translatesAutoresizingMaskIntoConstraints = false
+        saveButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            libraryTableView.topAnchor.constraint(equalTo: libraryView.topAnchor),
-            libraryTableView.leadingAnchor.constraint(equalTo: libraryView.leadingAnchor),
-            libraryTableView.trailingAnchor.constraint(equalTo: libraryView.trailingAnchor),
-            libraryTableView.bottomAnchor.constraint(equalTo: libraryView.bottomAnchor),
+            saveButton.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 40),
+            saveButton.centerYAnchor.constraint(equalTo: playButton.centerYAnchor),
+            saveButton.heightAnchor.constraint(equalToConstant: 50),
+            saveButton.widthAnchor.constraint(equalToConstant: 60)
         ])
     }
     
     @objc func recordButtonAction() {
         if audioManager.isRecording {
             audioManager.stopRecording()
-            print(audioManager.saveRecording())
             recordButton.tintColor = .systemGray
         } else {
             audioManager.startRecording()
@@ -171,8 +171,17 @@ class RecordVC: UIViewController {
     
     
     @objc func playButtonAction() {
-        print("play")
-        audioManager.playRecording()
+        if audioManager.isPlaying {
+            audioManager.stopRecording()
+            print("play")
+            let playImage = UIImage(systemName: "play.fill")
+            playButton.setBackgroundImage(playImage, for: .normal)
+        } else {
+            audioManager.playRecording()
+            print("prause")
+            let pauseImage = UIImage(systemName: "pause.fill")
+            playButton.setBackgroundImage(pauseImage, for: .normal)
+        }
     }
     
     @objc func stopButtonAction() {
@@ -181,26 +190,11 @@ class RecordVC: UIViewController {
     }
     
     @objc func saveButtonAction() {
-        print("save")
-        if let savedURL = audioManager.saveRecording() {
+        if let savedURL = audioManager.saveRecording(fileName: "newrecord2") {
             print("Recording saved at: \(savedURL)")
-            // Handle further actions after saving
         } else {
             // Handle error saving recording
         }
-    }
-}
-
-extension RecordVC: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return min(recordings.count, 7)
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AudioTrack", for: indexPath)
-        cell.textLabel?.text = recordings[indexPath.row]
-        cell.backgroundColor = .tertiarySystemBackground
-        return cell
     }
 }
 
