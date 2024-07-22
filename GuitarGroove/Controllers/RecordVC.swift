@@ -17,11 +17,13 @@ class RecordVC: UIViewController {
     let saveButton = UIButton(type: .system)
     
     var audioManager = AudioManager()
-    let recordings: [String] = ["Recording 1", "Recording 2", "Recording 3", "Recording 4"]
+    var recordings: [URL] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        
+        recordings = audioManager.getAudioFiles()
         
         audioManager.setupAudioSession()
         configureTitleImage()
@@ -85,12 +87,9 @@ class RecordVC: UIViewController {
         libraryView.alignment = .fill
         libraryView.distribution = .fillEqually
         
-        for recording in recordings {
-            let label = UILabel()
-            label.text = recording
-            label.textAlignment = .center
-            label.heightAnchor.constraint(equalToConstant: 50).isActive = true
-            libraryView.addArrangedSubview(label)
+        for recording in recordings.prefix(4) {
+            let recentRecordView = RecentRecordView(fileURL: recording)
+            libraryView.addArrangedSubview(recentRecordView)
         }
         
         libraryView.translatesAutoresizingMaskIntoConstraints = false
@@ -173,12 +172,10 @@ class RecordVC: UIViewController {
     @objc func playButtonAction() {
         if audioManager.isPlaying {
             audioManager.stopRecording()
-            print("play")
             let playImage = UIImage(systemName: "play.fill")
             playButton.setBackgroundImage(playImage, for: .normal)
         } else {
             audioManager.playRecording()
-            print("prause")
             let pauseImage = UIImage(systemName: "pause.fill")
             playButton.setBackgroundImage(pauseImage, for: .normal)
         }

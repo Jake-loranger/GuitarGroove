@@ -110,8 +110,17 @@ class AudioManager {
     }
     
     
-    private func getDocumentsDirectory() -> URL {
+    func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
+    }
+    
+    func getAudioFiles() -> [URL] {
+        do {
+            let audioFiles = try FileManager.default.contentsOfDirectory(at: .documentsDirectory, includingPropertiesForKeys: .none)
+            return audioFiles
+        } catch {
+            return []
+        }
     }
 }
