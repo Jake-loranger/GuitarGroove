@@ -69,18 +69,23 @@ class AudioManager {
         }
     }
     
-    func saveRecording(fileName: String) -> URL? {
-        guard let audioRecorder = audioRecorder else { return nil }
-        
+    func saveRecording(fileName: String) {
+        guard let audioRecorder = audioRecorder else {
+            print("Audio recorder is not initialized.")
+            return
+        }
         
         let audioFilename = getDocumentsDirectory().appendingPathComponent(fileName + ".wav")
         
+        // Ensure the audioRecorder is recording before saving
+        audioRecorder.stop()
+        
         do {
-            try FileManager.default.moveItem(at: audioRecorder.url, to: audioFilename)
-            return audioFilename
+            let audioData = try Data(contentsOf: audioRecorder.url)
+            try audioData.write(to: audioFilename)
+            print("Recording saved to: \(audioFilename.path)")
         } catch {
-            // Handle save error
-            return nil
+            print("Failed to save recording: \(error)")
         }
     }
     

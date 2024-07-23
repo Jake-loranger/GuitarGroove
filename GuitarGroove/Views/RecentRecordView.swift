@@ -48,20 +48,20 @@ class RecentRecordView: UIView {
         playButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            fileNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            fileNameLabel.topAnchor.constraint(equalTo: topAnchor),
             fileNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            fileNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            fileNameLabel.heightAnchor.constraint(equalToConstant: 20),
+            fileNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -100),
+            fileNameLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.5),
             
             durationLabel.topAnchor.constraint(equalTo: fileNameLabel.bottomAnchor),
             durationLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            durationLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            durationLabel.heightAnchor.constraint(equalToConstant: 20),
+            durationLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -100),
+            durationLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            playButton.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            playButton.topAnchor.constraint(equalTo: topAnchor),
             playButton.leadingAnchor.constraint(equalTo: fileNameLabel.trailingAnchor),
-            playButton.trailingAnchor.constraint(equalTo: trailingAnchor),
-            playButton.centerXAnchor.constraint(equalTo: centerXAnchor)
+            playButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            playButton.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
     

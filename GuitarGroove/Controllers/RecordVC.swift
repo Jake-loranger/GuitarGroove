@@ -87,7 +87,7 @@ class RecordVC: UIViewController {
         libraryView.alignment = .fill
         libraryView.distribution = .fillEqually
         
-        for recording in recordings.prefix(4) {
+        for recording in recordings.suffix(4) {
             let recentRecordView = RecentRecordView(fileURL: recording)
             libraryView.addArrangedSubview(recentRecordView)
         }
@@ -186,12 +186,37 @@ class RecordVC: UIViewController {
         audioManager.stopRecording()
     }
     
+
     @objc func saveButtonAction() {
-        if let savedURL = audioManager.saveRecording(fileName: "newrecord2") {
-            print("Recording saved at: \(savedURL)")
-        } else {
-            // Handle error saving recording
+        let alertController = UIAlertController(title: "Save Recording", message: "Enter a name for your recording", preferredStyle: .alert)
+        
+        alertController.addTextField { textField in
+            textField.placeholder = "Recording name"
         }
+        
+        let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] _ in
+            guard let textField = alertController.textFields?.first,
+                  let fileName = textField.text, !fileName.isEmpty else {
+                // Handle invalid input (e.g., show an error alert)
+                self?.showErrorAlert(message: "Please enter a valid name.")
+                return
+            }
+            self!.audioManager.saveRecording(fileName: fileName)
+            
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func showErrorAlert(message: String) {
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
 }
 
