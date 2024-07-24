@@ -10,7 +10,7 @@ import UIKit
 class LibraryVC: UIViewController {
     
     let tableView = UITableView()
-    var audioFiles: [String] = []
+    var audioFiles: [URL] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ class LibraryVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadAudioFiles()
+        audioFiles = AudioManager().getAudioFiles()
     }
     
     private func configureTableView() {
@@ -31,24 +31,6 @@ class LibraryVC: UIViewController {
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "AudioFileCell")
     }
-    
-    private func loadAudioFiles() {
-        let fileManager = FileManager.default
-        let documentsDirectory = getDocumentsDirectory()
-        
-        do {
-            let files = try fileManager.contentsOfDirectory(at: documentsDirectory, includingPropertiesForKeys: nil)
-            audioFiles = files.filter { $0.pathExtension == "wav" }.map { $0.lastPathComponent }
-            tableView.reloadData()
-        } catch {
-            print("Error loading audio files: \(error)")
-        }
-    }
-    
-    private func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
 }
 
 extension LibraryVC: UITableViewDelegate, UITableViewDataSource {
@@ -58,7 +40,7 @@ extension LibraryVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AudioFileCell", for: indexPath)
-        cell.textLabel?.text = audioFiles[indexPath.row]
+        cell.textLabel?.text = audioFiles[indexPath.row].lastPathComponent
         return cell
     }
     

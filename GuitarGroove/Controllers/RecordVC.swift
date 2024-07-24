@@ -11,19 +11,19 @@ class RecordVC: UIViewController {
     
     let titleImageView = UIImageView()
     let recordView = UIView()
-    let libraryView = UIStackView()
+    let libraryView = UITableView()
     let recordButton = UIButton(type: .system)
     let playButton = UIButton(type: .system)
     let saveButton = UIButton(type: .system)
     
     var audioManager = AudioManager()
-    var recordings: [URL] = []
+    var audioFiles: [URL] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
-        recordings = audioManager.getAudioFiles()
+        audioFiles = audioManager.getAudioFiles()
         
         audioManager.setupAudioSession()
         configureTitleImage()
@@ -76,21 +76,17 @@ class RecordVC: UIViewController {
         view.addSubview(libraryView)
         libraryView.backgroundColor = .tertiarySystemBackground
         libraryView.layer.cornerRadius = 10
-        
         libraryView.layer.shadowColor = UIColor.black.cgColor
         libraryView.layer.shadowOpacity = 0.1
         libraryView.layer.shadowOffset = CGSize(width: 0, height: 2)
         libraryView.layer.shadowRadius = 4
         libraryView.layer.masksToBounds = false
         
-        libraryView.axis = .vertical
-        libraryView.alignment = .fill
-        libraryView.distribution = .fillEqually
-        
-        for recording in recordings.suffix(4) {
-            let recentRecordView = RecentRecordView(fileURL: recording)
-            libraryView.addArrangedSubview(recentRecordView)
-        }
+        libraryView.delegate = self
+        libraryView.dataSource = self
+        libraryView.isScrollEnabled = false
+        libraryView.allowsSelection = false
+        libraryView.register(LibraryCell.self, forCellReuseIdentifier: LibraryCell.reuseID)
         
         libraryView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -171,7 +167,7 @@ class RecordVC: UIViewController {
     
     @objc func playButtonAction() {
         if audioManager.isPlaying {
-            audioManager.stopRecording()
+            audioManager.pauseRecording()
             let playImage = UIImage(systemName: "play.fill")
             playButton.setBackgroundImage(playImage, for: .normal)
         } else {
@@ -197,12 +193,12 @@ class RecordVC: UIViewController {
         let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] _ in
             guard let textField = alertController.textFields?.first,
                   let fileName = textField.text, !fileName.isEmpty else {
-                // Handle invalid input (e.g., show an error alert)
                 self?.showErrorAlert(message: "Please enter a valid name.")
                 return
             }
             self!.audioManager.saveRecording(fileName: fileName)
-            
+            self?.audioFiles = self?.audioManager.getAudioFiles() ?? []
+            self?.libraryView.reloadData()
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -219,4 +215,29 @@ class RecordVC: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
 }
+
+extension RecordVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = libraryView.dequeueReusableCell(withIdentifier: LibraryCell.reuseID) as! LibraryCell
+        if indexPath.row < audioFiles.count {
+            let recordUrl = audioFiles[indexPath.row]
+            cell.set(fileURL: recordUrl)
+        } else {
+            cell.playButton.isHidden = true
+            cell.fileNameLabel.text = ""
+            cell.durationLabel.text = ""
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return libraryView.frame.height / 4
+    }
+}
+
 

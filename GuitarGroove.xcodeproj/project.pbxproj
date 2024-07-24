@@ -17,6 +17,7 @@
 		A1397B822C45331500469111 /* GuitarGrooveUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1397B812C45331500469111 /* GuitarGrooveUITestsLaunchTests.swift */; };
 		A1397B902C45411C00469111 /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1397B8F2C45411C00469111 /* BluetoothManager.swift */; };
 		A1397B942C45E3B500469111 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1397B932C45E3B500469111 /* AudioManager.swift */; };
+		A14D7C2A2C519F8100FF6B45 /* URL+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D7C292C519F8100FF6B45 /* URL+ext.swift */; };
 		A1D9824D2C4B0EDD002D8194 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D9824C2C4B0EDD002D8194 /* LibraryCell.swift */; };
 		A1D9824F2C4B2792002D8194 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D9824E2C4B2792002D8194 /* FileManager.swift */; };
 		A1D982522C4BC6C7002D8194 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D982512C4BC6C7002D8194 /* Record.swift */; };
@@ -57,6 +58,7 @@
 		A1397B812C45331500469111 /* GuitarGrooveUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuitarGrooveUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A1397B8F2C45411C00469111 /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
 		A1397B932C45E3B500469111 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		A14D7C292C519F8100FF6B45 /* URL+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+ext.swift"; sourceTree = "<group>"; };
 		A1D9824C2C4B0EDD002D8194 /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
 		A1D9824E2C4B2792002D8194 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 		A1D982512C4BC6C7002D8194 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		A1397B5D2C45331200469111 /* GuitarGroove */ = {
 			isa = PBXGroup;
 			children = (
+				A14D7C2B2C519F8E00FF6B45 /* Extensions */,
 				A1D982532C4C05D1002D8194 /* Controllers */,
 				A1397B8E2C45410100469111 /* Managers */,
 				A1D982502C4BC6B6002D8194 /* Models */,
@@ -151,6 +154,14 @@
 				A1D9824E2C4B2792002D8194 /* FileManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		A14D7C2B2C519F8E00FF6B45 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A14D7C292C519F8100FF6B45 /* URL+ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		A1D982502C4BC6B6002D8194 /* Models */ = {
@@ -317,6 +328,7 @@
 				A1D9824D2C4B0EDD002D8194 /* LibraryCell.swift in Sources */,
 				A1D982562C4C065C002D8194 /* TabBarController.swift in Sources */,
 				A1D9824F2C4B2792002D8194 /* FileManager.swift in Sources */,
+				A14D7C2A2C519F8100FF6B45 /* URL+ext.swift in Sources */,
 				A1397B902C45411C00469111 /* BluetoothManager.swift in Sources */,
 				A1397B942C45E3B500469111 /* AudioManager.swift in Sources */,
 				A1D982522C4BC6C7002D8194 /* Record.swift in Sources */,

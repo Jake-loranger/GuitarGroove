@@ -122,10 +122,19 @@ class AudioManager {
     
     func getAudioFiles() -> [URL] {
         do {
-            let audioFiles = try FileManager.default.contentsOfDirectory(at: .documentsDirectory, includingPropertiesForKeys: .none)
-            return audioFiles
+            var audioFiles = try FileManager.default.contentsOfDirectory(at: .documentsDirectory, includingPropertiesForKeys: [.creationDateKey])
+            let sortedFiles = audioFiles.sorted { (url1, url2) in
+                guard let date1 = url1.creationDate, let date2 = url2.creationDate else {
+                    // Handle cases where creation date is missing (put either one last or first)
+                    return false
+                }
+                return date1 > date2
+            }
+            
+            return sortedFiles
         } catch {
             return []
         }
     }
 }
+
