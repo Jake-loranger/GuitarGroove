@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class RecordVC: UIViewController {
     
@@ -15,6 +16,9 @@ class RecordVC: UIViewController {
     let recordButton = UIButton(type: .system)
     let playButton = UIButton(type: .system)
     let saveButton = UIButton(type: .system)
+    
+    let pauseImage = UIImage(systemName: "pause.fill")
+    let playImage = UIImage(systemName: "play.fill")
     
     var audioManager = AudioManager()
     var audioFiles: [URL] = []
@@ -36,6 +40,7 @@ class RecordVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
+        libraryView.reloadData()
     }
     
     func configureTitleImage() {
@@ -104,7 +109,6 @@ class RecordVC: UIViewController {
         recordButton.tintColor = .systemGray
         recordButton.imageView?.contentMode = .scaleAspectFit
         
-        
         recordButton.addTarget(self, action: #selector(recordButtonAction), for: .touchUpInside)
         
         recordButton.translatesAutoresizingMaskIntoConstraints = false
@@ -114,7 +118,6 @@ class RecordVC: UIViewController {
             recordButton.heightAnchor.constraint(equalToConstant: 50),
             recordButton.widthAnchor.constraint(equalToConstant: 40)
         ])
-        
     }
     
     func configurePlayButton() {
@@ -123,7 +126,6 @@ class RecordVC: UIViewController {
         playButton.setBackgroundImage(playImage, for: .normal)
         playButton.tintColor = .systemGray
         playButton.imageView?.contentMode = .scaleAspectFit
-        
         
         playButton.addTarget(self, action: #selector(playButtonAction), for: .touchUpInside)
         
@@ -168,11 +170,9 @@ class RecordVC: UIViewController {
     @objc func playButtonAction() {
         if audioManager.isPlaying {
             audioManager.pauseRecording()
-            let playImage = UIImage(systemName: "play.fill")
             playButton.setBackgroundImage(playImage, for: .normal)
         } else {
-            audioManager.playRecording()
-            let pauseImage = UIImage(systemName: "pause.fill")
+            audioManager.playRecording(delegate: self)
             playButton.setBackgroundImage(pauseImage, for: .normal)
         }
     }
@@ -216,7 +216,7 @@ class RecordVC: UIViewController {
     }
 }
 
-extension RecordVC: UITableViewDelegate, UITableViewDataSource {
+extension RecordVC: UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
@@ -225,6 +225,7 @@ extension RecordVC: UITableViewDelegate, UITableViewDataSource {
         let cell = libraryView.dequeueReusableCell(withIdentifier: LibraryCell.reuseID) as! LibraryCell
         if indexPath.row < audioFiles.count {
             let recordUrl = audioFiles[indexPath.row]
+            print(recordUrl.description)
             cell.set(fileURL: recordUrl)
         } else {
             cell.playButton.isHidden = true
@@ -237,6 +238,10 @@ extension RecordVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return libraryView.frame.height / 4
+    }
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        playButton.setBackgroundImage(playImage, for: .normal)
     }
 }
 

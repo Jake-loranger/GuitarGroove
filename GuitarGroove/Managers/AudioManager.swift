@@ -89,14 +89,14 @@ class AudioManager {
         }
     }
     
-    func playRecording() {
+    func playRecording(delegate: AVAudioPlayerDelegate?) {
         let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.wav")
         
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: audioFilename)
             audioPlayer?.play()
+            audioPlayer?.delegate = delegate
             audioPlayer?.volume = 1.0
-            print("Playback started.")
         } catch {
             // Handle playback errors
             print("Failed to play recording.")

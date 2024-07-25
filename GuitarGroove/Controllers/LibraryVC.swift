@@ -20,6 +20,7 @@ class LibraryVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         audioFiles = AudioManager().getAudioFiles()
+        tableView.reloadData()
     }
     
     private func configureTableView() {

@@ -18,10 +18,12 @@ class LibraryCell: UITableViewCell {
     let durationLabel = UILabel()
     let playButton = UIButton(type: .system)
     
+    let playImage = UIImage(systemName: "play.fill")
+    let pauseImage = UIImage(systemName: "pause.fill")
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUILayout()
-//        configure()
     }
     
     required init?(coder: NSCoder) {
@@ -36,11 +38,16 @@ class LibraryCell: UITableViewCell {
     
     
     func setupUILayout() {
-        addSubview(fileNameLabel)
-        addSubview(durationLabel)
-        addSubview(playButton)
+        contentView.addSubview(fileNameLabel)
+        contentView.addSubview(durationLabel)
+        contentView.addSubview(playButton)
         
-        playButton.setTitle("Play", for: .normal)
+        self.layer.cornerRadius = 10
+        self.layer.masksToBounds = true
+        self.backgroundColor = .tertiarySystemBackground
+        
+        playButton.setBackgroundImage(playImage, for: .normal)
+        playButton.tintColor = .systemGray
         playButton.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
         
         fileNameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -50,18 +57,18 @@ class LibraryCell: UITableViewCell {
         NSLayoutConstraint.activate([
             fileNameLabel.topAnchor.constraint(equalTo: topAnchor),
             fileNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            fileNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -100),
+            fileNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -70),
             fileNameLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.5),
             
             durationLabel.topAnchor.constraint(equalTo: fileNameLabel.bottomAnchor),
             durationLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            durationLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -100),
+            durationLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -70),
             durationLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            playButton.topAnchor.constraint(equalTo: topAnchor),
+            playButton.topAnchor.constraint(equalTo: topAnchor, constant: 30),
             playButton.leadingAnchor.constraint(equalTo: fileNameLabel.trailingAnchor),
-            playButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            playButton.bottomAnchor.constraint(equalTo: bottomAnchor)
+            playButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+            playButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30)
         ])
     }
     
@@ -83,13 +90,20 @@ class LibraryCell: UITableViewCell {
     
     @objc private func playButtonTapped() {
         guard let player = audioPlayer else { return }
+        player.delegate = self
         
         if player.isPlaying {
             player.stop()
-            playButton.setTitle("Play", for: .normal)
+            playButton.setBackgroundImage(playImage, for: .normal)
         } else {
             player.play()
-            playButton.setTitle("Pause", for: .normal)
+            playButton.setBackgroundImage(pauseImage, for: .normal)
         }
+    }
+}
+
+extension LibraryCell: AVAudioPlayerDelegate {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        playButton.setBackgroundImage(playImage, for: .normal)
     }
 }
