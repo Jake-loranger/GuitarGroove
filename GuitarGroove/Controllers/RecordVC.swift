@@ -13,9 +13,11 @@ class RecordVC: UIViewController {
     let titleImageView = UIImageView()
     let recordView = UIView()
     let libraryView = UITableView()
+    
     let recordButton = UIButton(type: .system)
     let playButton = UIButton(type: .system)
     let saveButton = UIButton(type: .system)
+    let soundBarView = SoundBarView()
     
     let pauseImage = UIImage(systemName: "pause.fill")
     let playImage = UIImage(systemName: "play.fill")
@@ -33,9 +35,6 @@ class RecordVC: UIViewController {
         configureTitleImage()
         configureRecordView()
         configureLibraryView()
-        configureRecordButton()
-        configurePlayButton()
-        configureSaveButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,6 +57,11 @@ class RecordVC: UIViewController {
     }
     
     func configureRecordView() {
+        configureRecordButton()
+        configurePlayButton()
+        configureSaveButton()
+        configureSoundBar()
+        
         view.addSubview(recordView)
         recordView.backgroundColor = .tertiarySystemBackground
         recordView.layer.cornerRadius = 10
@@ -113,10 +117,10 @@ class RecordVC: UIViewController {
         
         recordButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            recordButton.leadingAnchor.constraint(equalTo: recordView.leadingAnchor, constant: 40),
-            recordButton.centerYAnchor.constraint(equalTo: recordView.centerYAnchor),
-            recordButton.heightAnchor.constraint(equalToConstant: 50),
-            recordButton.widthAnchor.constraint(equalToConstant: 40)
+            recordButton.leadingAnchor.constraint(equalTo: recordView.leadingAnchor, constant: 20),
+            recordButton.topAnchor.constraint(equalTo: recordView.topAnchor, constant: 20),
+            recordButton.heightAnchor.constraint(equalToConstant: 80),
+            recordButton.widthAnchor.constraint(equalToConstant: 55)
         ])
     }
     
@@ -131,10 +135,10 @@ class RecordVC: UIViewController {
         
         playButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            playButton.leadingAnchor.constraint(equalTo: recordButton.trailingAnchor, constant: 40),
-            playButton.centerYAnchor.constraint(equalTo: recordButton.centerYAnchor),
-            playButton.heightAnchor.constraint(equalToConstant: 50),
-            playButton.widthAnchor.constraint(equalToConstant: 50)
+            playButton.leadingAnchor.constraint(equalTo: recordView.leadingAnchor, constant: 20),
+            playButton.topAnchor.constraint(equalTo: recordButton.bottomAnchor, constant: 10),
+            playButton.bottomAnchor.constraint(equalTo: recordView.bottomAnchor, constant: -10),
+            playButton.topAnchor.constraint(equalTo: recordButton.bottomAnchor, constant: 10),
         ])
     }
     
@@ -149,11 +153,31 @@ class RecordVC: UIViewController {
         
         saveButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            saveButton.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 40),
-            saveButton.centerYAnchor.constraint(equalTo: playButton.centerYAnchor),
-            saveButton.heightAnchor.constraint(equalToConstant: 50),
-            saveButton.widthAnchor.constraint(equalToConstant: 60)
+            saveButton.leadingAnchor.constraint(equalTo: playButton.leadingAnchor, constant: 20),
+            saveButton.topAnchor.constraint(equalTo: recordButton.bottomAnchor, constant: 10),
+            saveButton.bottomAnchor.constraint(equalTo: recordView.bottomAnchor, constant: -10),
+            saveButton.topAnchor.constraint(equalTo: recordButton.bottomAnchor, constant: 10),
         ])
+    }
+    
+    func configureSoundBar() {
+        recordView.addSubview(soundBarView)
+        
+        soundBarView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            soundBarView.leadingAnchor.constraint(equalTo: recordButton.trailingAnchor, constant: 20),
+            soundBarView.topAnchor.constraint(equalTo: recordView.topAnchor, constant: 10),
+            soundBarView.trailingAnchor.constraint(equalTo: recordView.trailingAnchor, constant: -20),
+            soundBarView.bottomAnchor.constraint(equalTo: recordView.bottomAnchor, constant: -10)
+        ])
+    }
+    
+    func updateWaveform(with rms: Float) {
+        DispatchQueue.main.async {
+//            self.soundBarView.updateWaveform(with: rms)
+            self.soundBarView.tempVolumeLabel.text = String(rms)
+            
+        }
     }
     
     @objc func recordButtonAction() {
@@ -177,6 +201,7 @@ class RecordVC: UIViewController {
         }
     }
     
+    
     @objc func stopButtonAction() {
         print("stop")
         audioManager.stopRecording()
@@ -198,6 +223,7 @@ class RecordVC: UIViewController {
             }
             self!.audioManager.saveRecording(fileName: fileName)
             self?.audioFiles = self?.audioManager.getAudioFiles() ?? []
+            print(self?.audioFiles)
             self?.libraryView.reloadData()
         }
         
@@ -225,7 +251,7 @@ extension RecordVC: UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDel
         let cell = libraryView.dequeueReusableCell(withIdentifier: LibraryCell.reuseID) as! LibraryCell
         if indexPath.row < audioFiles.count {
             let recordUrl = audioFiles[indexPath.row]
-            print(recordUrl.description)
+//            print(recordUrl.description)
             cell.set(fileURL: recordUrl)
         } else {
             cell.playButton.isHidden = true

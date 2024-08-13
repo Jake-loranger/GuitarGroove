@@ -47,23 +47,28 @@ class LibraryCell: UITableViewCell {
         self.backgroundColor = .tertiarySystemBackground
         
         playButton.setBackgroundImage(playImage, for: .normal)
-        playButton.tintColor = .systemGray
+        playButton.tintColor = .systemGray2
         playButton.addTarget(self, action: #selector(playButtonTapped), for: .touchUpInside)
+        
+        fileNameLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        fileNameLabel.textColor = .systemGray
+        
+        durationLabel.textColor = .systemGray2
         
         fileNameLabel.translatesAutoresizingMaskIntoConstraints = false
         durationLabel.translatesAutoresizingMaskIntoConstraints = false
         playButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            fileNameLabel.topAnchor.constraint(equalTo: topAnchor),
+            fileNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             fileNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             fileNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -70),
-            fileNameLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.5),
+            fileNameLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4),
             
             durationLabel.topAnchor.constraint(equalTo: fileNameLabel.bottomAnchor),
             durationLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             durationLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -70),
-            durationLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            durationLabel.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.3),
             
             playButton.topAnchor.constraint(equalTo: topAnchor, constant: 30),
             playButton.leadingAnchor.constraint(equalTo: fileNameLabel.trailingAnchor),

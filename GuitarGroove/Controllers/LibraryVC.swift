@@ -31,6 +31,7 @@ class LibraryVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "AudioFileCell")
+        
     }
 }
 
@@ -51,5 +52,18 @@ extension LibraryVC: UITableViewDelegate, UITableViewDataSource {
         let selectedFile = audioFiles[indexPath.row]
         print("Selected file: \(selectedFile)")
         // Add code to handle file selection, e.g., playback or detail view
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        let selectedFile = audioFiles[indexPath.row]
+        
+        do {
+            try FileManager.default.removeItem(at: selectedFile)
+            audioFiles.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .left)
+        } catch {
+            print("Failed to delete file from ./documents directory")
+        }
     }
 }

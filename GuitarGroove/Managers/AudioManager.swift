@@ -11,6 +11,8 @@ class AudioManager {
     var audioRecorder: AVAudioRecorder?
     var audioPlayer: AVAudioPlayer?
     var recordingSession: AVAudioSession!
+    let audioEngine = AVAudioEngine()
+    
     
     var isRecording: Bool {
         return audioRecorder?.isRecording ?? false
@@ -60,12 +62,14 @@ class AudioManager {
     func startRecording() {
         if audioRecorder?.isRecording == false {
             audioRecorder?.record()
+            setupPlayerNode()
         }
     }
     
     func stopRecording() {
         if audioRecorder?.isRecording == true {
             audioRecorder?.stop()
+            audioEngine.stop()
         }
     }
     
@@ -90,10 +94,10 @@ class AudioManager {
     }
     
     func playRecording(delegate: AVAudioPlayerDelegate?) {
-        let audioFilename = getDocumentsDirectory().appendingPathComponent("recording.wav")
+        guard let audioRecorder = audioRecorder else { return }
         
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: audioFilename)
+            audioPlayer = try AVAudioPlayer(contentsOf: audioRecorder.url)
             audioPlayer?.play()
             audioPlayer?.delegate = delegate
             audioPlayer?.volume = 1.0
@@ -112,6 +116,29 @@ class AudioManager {
         } catch {
             print("Failed to pause recording")
         }
+    }
+    
+    func setupPlayerNode() {
+        let inputNode = audioEngine.inputNode
+        let recordingFormat = inputNode.outputFormat(forBus: 0)
+        
+        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
+            print(self.processAudioBuffer(buffer))
+        }
+
+        audioEngine.prepare()
+        try? audioEngine.start()
+    }
+    
+    func processAudioBuffer(_ buffer: AVAudioPCMBuffer) -> Float {
+        let channelData = buffer.floatChannelData![0]
+        let channelDataValueArray = stride(from: 0, to: Int(buffer.frameLength), by: buffer.stride).map{ channelData[$0] }
+        
+        // Here, you can normalize or process the data to create your visualization
+        // Example: Take the RMS value
+        let rms = sqrt(channelDataValueArray.map { $0 * $0 }.reduce(0, +) / Float(buffer.frameLength))
+        
+        return rms
     }
     
     
